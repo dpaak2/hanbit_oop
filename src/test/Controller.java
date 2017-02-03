@@ -3,6 +3,8 @@ package test;
 import java.util.Scanner;
 import test.Member;
 import javax.swing.*;
+
+import hospital.BMI;
 public class Controller {
 	
 	public void start(){
@@ -12,7 +14,7 @@ public class Controller {
 		String uid="";
 		String gender="";
 		Member member= new Member();
-		BMI bmi=new BMI();
+		/*BMI bmi=new BMI();*/
 		/*Member member=null; //instance (객체의 초기값은)  null이다. 생성자와 선언이 분리 될수있다.
 */		
 		while(true){
@@ -47,23 +49,7 @@ public class Controller {
 				JOptionPane.showMessageDialog(null,member.getName()+"("+member.calcGender(gender)+")" );
 				break; 
 			
-			case "2":
-//				double opt=double.parsedouble(option);
-				
-				while(true){
-					uid=JOptionPane.showInputDialog("아이디");
-					if(member.getUid().equals(uid)){
-						break;
-					}
-				}
-				bmi.setUid(uid);
-				bmi.setHeight(Double.parseDouble(JOptionPane.showInputDialog("키"))/100);
-				bmi.setWeight(Double.parseDouble(JOptionPane.showInputDialog("몸무게")));	
-				JOptionPane.showMessageDialog(null,member.getName()+"("+gender+")"+bmi.calcBmi(bmi.getHeight(),bmi.getWeight()));
-/*				System.out.println(+"("+gender+")"+bmi.calcBmi(bmi.getHeight(),bmi.getWeight()));
-*/				//한석구(남) 과체충
-				break;			
-		
+			
 					
 			case "3"://lotto
 				break;

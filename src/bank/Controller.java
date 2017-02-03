@@ -5,8 +5,10 @@ import javax.swing.*;
 
 import test.Member;
 public class Controller {
+	@SuppressWarnings("null")
 	public void start(){
 	Scanner s=new Scanner(System.in);
+	WageAccount wage =null;
 		Member member=null;
 		Account account=null;
 		String ssn="";
@@ -48,7 +50,7 @@ public class Controller {
 				String name="";
 				int money=0;
 				String accountType="저축예금";
-				account=new Account(uid,accountType,money);
+				wage=new WageAccount(money);
 				StringBuffer sb =new StringBuffer();
 				sb.append("["+Account.BANK_NAME+"]\n");  //class variable
 				sb.append("계좌번호: "+account.getAccountNo()+"\n");
@@ -63,8 +65,16 @@ public class Controller {
 				 * 가입일:2016년12월14일
 				 * 잔액:￦0 */				
 				break;
-			case "3":break;
-			case "4":break;
+			case "3": //입금
+				account.deposit(Integer.parseInt(JOptionPane.showInputDialog("입금할 금액의 액수를 입력하여 주세요.")));
+				JOptionPane.showMessageDialog(null, "원 이 입금되었습니다.");
+				break;
+			case "4": //출금
+				JOptionPane.showMessageDialog(null,
+						account.withdraw(Integer.parseInt(
+								JOptionPane.showInputDialog("출금할 금액의 액수를 입력하여 주세요 "))));
+						
+				break;
 			case "5":break;
 			case "6":break;
 			}

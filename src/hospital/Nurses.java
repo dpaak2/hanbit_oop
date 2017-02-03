@@ -1,43 +1,36 @@
 package hospital;
 
-public class Nurses {
-	String nurName,nurGen,nurPhone,nurEmail,nurPostion,majorJob;
-	int nurId;
-
-	public void setNurName(String nurName){
-		this.nurName=nurName;
-	}
-	public String getNurName(){
-		return nurName;
-	}
-	public void setNurGen(String nurGen){
-		this.nurGen=nurGen;
-	}
-	public String getNurGen(){
-		return nurGen;
-	}
-	public void setNurPhone(String nurPhone){
-		this.nurPhone=nurPhone;
-	}
-	public String getNurPhone(){
-		return nurPhone;
-	}
-	public void setNurEmail(String nurEmail){
-		this.nurEmail=nurEmail;
-	}
-	public String getNurEmail(){
-		return nurEmail;
-	}
+public class Nurses extends Member {
+	String nurPosition,majorJob;
+	
 	public void setNurPosition(String nurPosition){
-		this.nurPostion=nurPosition;
+		this.nurPosition=nurPosition;
 	}
 	public String getNurPosition(){
-		return nurPostion;
+		return nurPosition;
 	}
 	public void setMajorJob(String majorJob){
 		this.majorJob= majorJob;
 	}
 	public String getMajorJob(){
 		return majorJob;
+	}
+	@Override
+	public String toString() {
+		return String.format(
+				"간호사Id: %s\n"
+						+ "담당 진료과목: %s\n"
+						+ "성명: %s\n"
+						+ "성별: %s\n"
+						+ "전화번호: %s\n"
+						+ "이메일:%s\n"
+						+ "직급:%s\n"
+						,uid
+						,majorJob
+						,name
+						,super.calcGender(ssn)
+						,phone
+						,email
+						,nurPosition);
 	}
 }
